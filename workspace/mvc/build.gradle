@@ -1,0 +1,122 @@
+buildscript {
+    repositories {
+        maven {
+            url "http://nexus-dev.wanzhoumo.com/nexus/content/repositories/thirdparty/"
+        }
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+
+    dependencies {
+        classpath("com.rever:mybatisGenerator:1.0.0-RELEASE")
+
+    }
+}
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'war'
+    apply plugin: com.rever.MyBatisGeneratorPlugin
+
+    mybatis {
+        configFile = 'generatorConfig.xml'
+    }
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+    configurations {
+        //logging bridge, exclude belows
+        compile.exclude group: 'commons-logging', module: 'commons-logging'
+        compile.exclude group: 'log4j', module: 'log4j'
+        compile.exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+    }
+
+    dependencies {
+        //spring
+        compile 'org.springframework:spring-webmvc:4.1.6.RELEASE'
+        compile 'org.springframework:spring-jdbc:4.1.6.RELEASE'
+        compile 'org.springframework:spring-aop:4.1.6.RELEASE'
+        compile 'org.aspectj:aspectjrt:1.8.5'
+        compile 'org.aspectj:aspectjweaver:1.8.5'
+
+        //datasource pool
+        compile 'com.alibaba:druid:1.0.14'
+
+        //mysql connector
+        compile 'mysql:mysql-connector-java:5.1.39'
+
+        compile 'org.apache.commons:commons-dbcp2:2.1.1'
+        compile group: 'org.jodd', name: 'jodd', version: '3.3.8'
+
+        //servlet api
+        providedCompile 'org.apache.tomcat:tomcat-servlet-api:7.0.62'
+        providedCompile 'javax.servlet.jsp:jsp-api:2.1'
+
+        //json
+        compile 'com.fasterxml.jackson.core:jackson-databind:2.4.4'
+
+        //validation
+        compile 'org.hibernate:hibernate-validator:5.1.3.Final'
+
+        //redis
+        compile 'redis.clients:jedis:2.7.3'
+        compile 'org.springframework.data:spring-data-redis:1.5.2.RELEASE'
+
+        //logging
+        compile 'ch.qos.logback:logback-classic:1.1.3'
+        compile 'org.slf4j:slf4j-api:1.7.12'
+        compile 'org.slf4j:jcl-over-slf4j:1.7.12'
+        compile 'org.slf4j:log4j-over-slf4j:1.7.12'
+
+        //test
+        testCompile 'org.springframework:spring-test:4.1.6.RELEASE'
+        testCompile 'junit:junit:4.12'
+
+        //http client
+        compile 'commons-httpclient:commons-httpclient:3.1'
+
+        //spring rabbit
+        compile 'org.springframework.amqp:spring-rabbit:1.4.5.RELEASE'
+
+        //apache utils
+        compile 'org.apache.commons:commons-lang3:3.4'
+        compile 'org.apache.commons:commons-collections4:4.0'
+
+        //myBatis
+        compile 'org.mybatis:mybatis:3.2.3'
+        compile 'org.mybatis:mybatis-spring:1.2.1'
+        compile 'com.github.miemiedev:mybatis-paginator:1.2.17'
+        testCompile 'org.mybatis.generator:mybatis-generator-maven-plugin:1.3.2'
+
+        //dom4j
+        compile 'dom4j:dom4j:1.6.1'
+
+        //javamail
+        compile 'javax.mail:mail:1.4.7'
+
+
+    }
+
+    repositories {
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
+
+        maven {
+            url 'http://nexus-dev.wanzhoumo.com/nexus/content/groups/public/'
+        }
+
+        maven {
+            url 'https://repository-master.mulesoft.org/nexus/content/groups/public/'
+        }
+
+        mavenCentral()
+    }
+}
+// https://docs.gradle.org/current/userguide/idea_plugin.html
+// http://blog.csdn.net/u014761700/article/details/51867939
+// http://www.cnblogs.com/zdfjf/p/5262037.html

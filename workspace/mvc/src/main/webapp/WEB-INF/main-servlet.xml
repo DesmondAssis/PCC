@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/rabbit
+           http://www.springframework.org/schema/rabbit/spring-rabbit.xsd http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd http://www.alibaba.com/schema/stat http://www.alibaba.com/schema/stat.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+
+    <aop:aspectj-autoproxy />
+    <context:annotation-config />
+    <context:component-scan base-package="com.desmond" />
+    <mvc:annotation-driven>
+
+    </mvc:annotation-driven>
+
+    <!-- 支持异步方法执行-->
+    <task:annotation-driven executor="defaultExecutor"/>
+    <task:executor id="defaultExecutor"
+            pool-size="2-10"
+            queue-capacity="1000"
+            keep-alive="120"
+            rejection-policy="CALLER_RUNS"/>
+
+    <task:executor id="userMessageExecutor"
+            pool-size="2-10"
+            queue-capacity="1000"
+            keep-alive="120"
+            rejection-policy="CALLER_RUNS"/>
+
+    <!-- security -->
+
+
+    <!-- 文件上传 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver" />
+
+    <!-- exception resolvers -->
+
+    <!-- json -->
+    <bean id="jackson" class="com.fasterxml.jackson.databind.ObjectMapper" />
+
+    <import resource="classpath*:spring-*.xml" />
+</beans>
