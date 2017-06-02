@@ -12,9 +12,7 @@
     <aop:aspectj-autoproxy />
     <context:annotation-config />
     <context:component-scan base-package="com.desmond" />
-    <mvc:annotation-driven>
-
-    </mvc:annotation-driven>
+    <mvc:annotation-driven/>
 
     <!-- 支持异步方法执行-->
     <task:annotation-driven executor="defaultExecutor"/>
@@ -40,6 +38,23 @@
 
     <!-- json -->
     <bean id="jackson" class="com.fasterxml.jackson.databind.ObjectMapper" />
+
+    <!-- configuration laods -->
+    <bean id="envFile" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="fileEncoding" value="UTF-8" />
+        <property name="locations">
+            <list>
+                <value>classpath:base.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="envLoader" class="com.desmond.spring.env.EnvLoader">
+        <property name="properties" ref="envFile"  />
+    </bean>
+
+    <!-- env factory, auto injection for Env object -->
+    <bean id="envFactory" class="com.desmond.spring.env.EnvFactoryBean" />
 
     <import resource="classpath*:spring-*.xml" />
 </beans>
