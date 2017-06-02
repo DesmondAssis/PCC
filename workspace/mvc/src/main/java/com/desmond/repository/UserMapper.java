@@ -1,4 +1,4 @@
-package com.desmond.dao;
+package com.desmond.repository;
 
 import com.desmond.model.User;
 import com.desmond.model.UserExample;

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.desmond.repository.UserMapper" >
-  <resultMap id="BaseResultMap" type="com.desmond.model.User" >
-    <id column="id" property="id" jdbcType="INTEGER" />
+<mapper namespace="com.desmond.repository.PccUserMapper" >
+  <resultMap id="BaseResultMap" type="com.desmond.model.PccUser" >
+    <id column="id" property="id" jdbcType="BIGINT" />
     <result column="name" property="name" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -66,13 +66,13 @@
   <sql id="Base_Column_List" >
     id, `name`
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.desmond.model.UserExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.desmond.model.PccUserExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from user
+    from pcc_user
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -80,28 +80,28 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
-    from user
-    where id = #{id,jdbcType=INTEGER}
+    from pcc_user
+    where id = #{id,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from user
-    where id = #{id,jdbcType=INTEGER}
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from pcc_user
+    where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.desmond.model.UserExample" >
-    delete from user
+  <delete id="deleteByExample" parameterType="com.desmond.model.PccUserExample" >
+    delete from pcc_user
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.desmond.model.User" >
-    insert into user (id, `name`)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR})
+  <insert id="insert" parameterType="com.desmond.model.PccUser" >
+    insert into pcc_user (id, `name`)
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.desmond.model.User" >
-    insert into user
+  <insert id="insertSelective" parameterType="com.desmond.model.PccUser" >
+    insert into pcc_user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
@@ -112,24 +112,24 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
-        #{id,jdbcType=INTEGER},
+        #{id,jdbcType=BIGINT},
       </if>
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.desmond.model.UserExample" resultType="java.lang.Integer" >
-    select count(*) from user
+  <select id="countByExample" parameterType="com.desmond.model.PccUserExample" resultType="java.lang.Integer" >
+    select count(*) from pcc_user
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update user
+    update pcc_user
     <set >
       <if test="record.id != null" >
-        id = #{record.id,jdbcType=INTEGER},
+        id = #{record.id,jdbcType=BIGINT},
       </if>
       <if test="record.name != null" >
         `name` = #{record.name,jdbcType=VARCHAR},
@@ -140,25 +140,25 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update user
-    set id = #{record.id,jdbcType=INTEGER},
+    update pcc_user
+    set id = #{record.id,jdbcType=BIGINT},
       `name` = #{record.name,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.desmond.model.User" >
-    update user
+  <update id="updateByPrimaryKeySelective" parameterType="com.desmond.model.PccUser" >
+    update pcc_user
     <set >
       <if test="name != null" >
         `name` = #{name,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.desmond.model.User" >
-    update user
+  <update id="updateByPrimaryKey" parameterType="com.desmond.model.PccUser" >
+    update pcc_user
     set `name` = #{name,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>
