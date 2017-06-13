@@ -68,7 +68,7 @@
     </bean>
 
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.desmond.dao"/>
+        <property name="basePackage" value="com.desmond.repository"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryBase"/>
     </bean>
 

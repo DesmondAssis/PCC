@@ -4,6 +4,8 @@
   <resultMap id="BaseResultMap" type="com.desmond.model.PccUser" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="create_timestamp" property="createTimestamp" jdbcType="TIMESTAMP" />
+    <result column="update_timestamp" property="updateTimestamp" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -64,7 +66,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, `name`
+    id, `name`, create_timestamp, update_timestamp
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.desmond.model.PccUserExample" >
     select
@@ -97,8 +99,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.desmond.model.PccUser" >
-    insert into pcc_user (id, `name`)
-    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR})
+    insert into pcc_user (id, `name`, create_timestamp, 
+      update_timestamp)
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{createTimestamp,jdbcType=TIMESTAMP}, 
+      #{updateTimestamp,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.desmond.model.PccUser" >
     insert into pcc_user
@@ -109,6 +113,12 @@
       <if test="name != null" >
         `name`,
       </if>
+      <if test="createTimestamp != null" >
+        create_timestamp,
+      </if>
+      <if test="updateTimestamp != null" >
+        update_timestamp,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -116,6 +126,12 @@
       </if>
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="createTimestamp != null" >
+        #{createTimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTimestamp != null" >
+        #{updateTimestamp,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -134,6 +150,12 @@
       <if test="record.name != null" >
         `name` = #{record.name,jdbcType=VARCHAR},
       </if>
+      <if test="record.createTimestamp != null" >
+        create_timestamp = #{record.createTimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTimestamp != null" >
+        update_timestamp = #{record.updateTimestamp,jdbcType=TIMESTAMP},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -142,7 +164,9 @@
   <update id="updateByExample" parameterType="map" >
     update pcc_user
     set id = #{record.id,jdbcType=BIGINT},
-      `name` = #{record.name,jdbcType=VARCHAR}
+      `name` = #{record.name,jdbcType=VARCHAR},
+      create_timestamp = #{record.createTimestamp,jdbcType=TIMESTAMP},
+      update_timestamp = #{record.updateTimestamp,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -153,12 +177,20 @@
       <if test="name != null" >
         `name` = #{name,jdbcType=VARCHAR},
       </if>
+      <if test="createTimestamp != null" >
+        create_timestamp = #{createTimestamp,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTimestamp != null" >
+        update_timestamp = #{updateTimestamp,jdbcType=TIMESTAMP},
+      </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.desmond.model.PccUser" >
     update pcc_user
-    set `name` = #{name,jdbcType=VARCHAR}
+    set `name` = #{name,jdbcType=VARCHAR},
+      create_timestamp = #{createTimestamp,jdbcType=TIMESTAMP},
+      update_timestamp = #{updateTimestamp,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

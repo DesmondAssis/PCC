@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="EntryPointsManager">
-    <entry_points version="2.0" />
-  </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
       <profile-state>
@@ -20,10 +17,28 @@
             <id>ActionScript specificJavaScript</id>
           </State>
           <State>
-            <id>Android Lint</id>
+            <id>Android &gt; Lint &gt; Correctness</id>
+          </State>
+          <State>
+            <id>Android &gt; Lint &gt; Correctness &gt; Messages</id>
+          </State>
+          <State>
+            <id>Android &gt; Lint &gt; Performance</id>
+          </State>
+          <State>
+            <id>Android &gt; Lint &gt; Security</id>
+          </State>
+          <State>
+            <id>Android &gt; Lint &gt; Usability</id>
+          </State>
+          <State>
+            <id>Android Lint for Kotlin</id>
           </State>
           <State>
             <id>Application Server Specific Inspections</id>
+          </State>
+          <State>
+            <id>ArquillianJava</id>
           </State>
           <State>
             <id>Assignment issuesJava</id>
@@ -95,6 +110,9 @@
             <id>Dependency issuesJava</id>
           </State>
           <State>
+            <id>ECMAScript 6 migration aidsJavaScript</id>
+          </State>
+          <State>
             <id>Encapsulation issuesJava</id>
           </State>
           <State>
@@ -108,6 +126,9 @@
           </State>
           <State>
             <id>Finalization issuesJava</id>
+          </State>
+          <State>
+            <id>Flow type checkerJavaScript</id>
           </State>
           <State>
             <id>GPath inspectionsGroovy</id>
@@ -140,10 +161,10 @@
             <id>Initialization issuesJava</id>
           </State>
           <State>
-            <id>Internationalization issues</id>
+            <id>Internationalization issuesJava</id>
           </State>
           <State>
-            <id>Internationalization issuesJava</id>
+            <id>J2ME SupportJava</id>
           </State>
           <State>
             <id>J2ME issuesJava</id>
@@ -158,13 +179,19 @@
             <id>JSP Inspections</id>
           </State>
           <State>
-            <id>JUnit issues</id>
-          </State>
-          <State>
             <id>JUnit issuesJava</id>
           </State>
           <State>
             <id>Java</id>
+          </State>
+          <State>
+            <id>Java 5Java language level migration aidsJava</id>
+          </State>
+          <State>
+            <id>Java 7Java language level migration aidsJava</id>
+          </State>
+          <State>
+            <id>Java 8Java language level migration aidsJava</id>
           </State>
           <State>
             <id>Java EE issues</id>
@@ -194,13 +221,13 @@
             <id>Javadoc issuesJava</id>
           </State>
           <State>
+            <id>Kotlin</id>
+          </State>
+          <State>
             <id>Language Injection</id>
           </State>
           <State>
             <id>Logging issuesJava</id>
-          </State>
-          <State>
-            <id>Manifest</id>
           </State>
           <State>
             <id>Memory issuesJava</id>
@@ -224,9 +251,6 @@
             <id>Numeric issuesJava</id>
           </State>
           <State>
-            <id>OSGi</id>
-          </State>
-          <State>
             <id>Packaging issuesJava</id>
           </State>
           <State>
@@ -237,6 +261,9 @@
           </State>
           <State>
             <id>Portability issuesJava</id>
+          </State>
+          <State>
+            <id>Potentially confusing code constructsGroovy</id>
           </State>
           <State>
             <id>Potentially confusing code constructsJavaScript</id>
@@ -272,7 +299,13 @@
             <id>Spring</id>
           </State>
           <State>
+            <id>Spring AOPSpring</id>
+          </State>
+          <State>
             <id>Spring CoreSpring</id>
+          </State>
+          <State>
+            <id>Spring DataSpring</id>
           </State>
           <State>
             <id>Struts</id>
@@ -284,13 +317,16 @@
             <id>StyleGroovy</id>
           </State>
           <State>
-            <id>TestNG</id>
+            <id>TestNGJava</id>
           </State>
           <State>
             <id>Threading issuesGroovy</id>
           </State>
           <State>
             <id>Threading issuesJava</id>
+          </State>
+          <State>
+            <id>TypeScript</id>
           </State>
           <State>
             <id>Verbose or redundant code constructsJava</id>
@@ -308,20 +344,15 @@
             <id>toString() issuesJava</id>
           </State>
         </expanded-state>
+        <selected-state>
+          <State>
+            <id>Android</id>
+          </State>
+        </selected-state>
       </profile-state>
     </entry>
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
-    <OptionsSetting value="true" id="Add" />
-    <OptionsSetting value="true" id="Remove" />
-    <OptionsSetting value="true" id="Checkout" />
-    <OptionsSetting value="true" id="Update" />
-    <OptionsSetting value="true" id="Status" />
-    <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
-    <ConfirmationsSetting value="0" id="Remove" />
-  </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" assert-keyword="true" jdk-15="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>

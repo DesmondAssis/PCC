@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.desmond.repository.PccArticleUserRefMapper" >
+    <select id="findByArticleId" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        from pcc_article_user_ref
+        where article_id = #{articleId, jdbcType=BIGINT}
+        order by create_timestamp asc
+    </select>
+
+    <select id="findByArticleIdByFriend" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        from pcc_article_user_ref
+        where article_id = #{articleId, jdbcType=BIGINT}
+        and user_id in (
+        select friend_id from pcc_friend where user_id = #{userId, jdbcType=BIGINT}
+        )
+        order by create_timestamp asc
+    </select>
+</mapper>

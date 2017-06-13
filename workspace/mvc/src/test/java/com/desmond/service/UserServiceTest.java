@@ -6,7 +6,9 @@ import com.github.miemiedev.mybatis.paginator.domain.Order;
 import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.Arrays;
 import java.util.List;
@@ -16,6 +18,7 @@ import static org.junit.Assert.*;
 /**
  * Created by Li.Xiaochuan on 17/6/1.
  */
+@RunWith(SpringJUnit4ClassRunner.class)
 public class UserServiceTest extends BaseTest{
 
     @Autowired

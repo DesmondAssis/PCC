@@ -1,6 +1,7 @@
 package com.desmond.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class PccUserExample {
@@ -231,6 +232,126 @@ public class PccUserExample {
 
         public Criteria andNameNotBetween(String value1, String value2) {
             addCriterion("`name` not between", value1, value2, "name");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimestampIsNull() {
+            addCriterion("create_timestamp is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimestampIsNotNull() {
+            addCriterion("create_timestamp is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimestampEqualTo(Date value) {
+            addCriterion("create_timestamp =", value, "createTimestamp");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimestampNotEqualTo(Date value) {
+            addCriterion("create_timestamp <>", value, "createTimestamp");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimestampGreaterThan(Date value) {
+            addCriterion("create_timestamp >", value, "createTimestamp");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimestampGreaterThanOrEqualTo(Date value) {
+            addCriterion("create_timestamp >=", value, "createTimestamp");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimestampLessThan(Date value) {
+            addCriterion("create_timestamp <", value, "createTimestamp");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimestampLessThanOrEqualTo(Date value) {
+            addCriterion("create_timestamp <=", value, "createTimestamp");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimestampIn(List<Date> values) {
+            addCriterion("create_timestamp in", values, "createTimestamp");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimestampNotIn(List<Date> values) {
+            addCriterion("create_timestamp not in", values, "createTimestamp");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimestampBetween(Date value1, Date value2) {
+            addCriterion("create_timestamp between", value1, value2, "createTimestamp");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimestampNotBetween(Date value1, Date value2) {
+            addCriterion("create_timestamp not between", value1, value2, "createTimestamp");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpdateTimestampIsNull() {
+            addCriterion("update_timestamp is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpdateTimestampIsNotNull() {
+            addCriterion("update_timestamp is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpdateTimestampEqualTo(Date value) {
+            addCriterion("update_timestamp =", value, "updateTimestamp");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpdateTimestampNotEqualTo(Date value) {
+            addCriterion("update_timestamp <>", value, "updateTimestamp");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpdateTimestampGreaterThan(Date value) {
+            addCriterion("update_timestamp >", value, "updateTimestamp");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpdateTimestampGreaterThanOrEqualTo(Date value) {
+            addCriterion("update_timestamp >=", value, "updateTimestamp");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpdateTimestampLessThan(Date value) {
+            addCriterion("update_timestamp <", value, "updateTimestamp");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpdateTimestampLessThanOrEqualTo(Date value) {
+            addCriterion("update_timestamp <=", value, "updateTimestamp");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpdateTimestampIn(List<Date> values) {
+            addCriterion("update_timestamp in", values, "updateTimestamp");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpdateTimestampNotIn(List<Date> values) {
+            addCriterion("update_timestamp not in", values, "updateTimestamp");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpdateTimestampBetween(Date value1, Date value2) {
+            addCriterion("update_timestamp between", value1, value2, "updateTimestamp");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpdateTimestampNotBetween(Date value1, Date value2) {
+            addCriterion("update_timestamp not between", value1, value2, "updateTimestamp");
             return (Criteria) this;
         }
     }

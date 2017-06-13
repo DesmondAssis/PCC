@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
-@Component
 public class EnvLoader {
 
     private static final Logger LOG = LoggerFactory.getLogger(EnvLoader.class);

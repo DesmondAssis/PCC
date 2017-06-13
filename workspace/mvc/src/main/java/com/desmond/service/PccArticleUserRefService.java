@@ -6,6 +6,7 @@ import com.desmond.model.PccUser;
 import com.desmond.model.PccUserExample;
 import com.desmond.repository.PccArticleUserRefMapper;
 import com.desmond.repository.PccUserMapper;
+import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,6 +31,32 @@ public class PccArticleUserRefService {
         }
 
         return result;
+    }
+
+    public List<PccArticleUserRef> findByArtcileId(long articleId, long cursor, long pageSize) {
+        PageBounds pageBounds = new PageBounds();
+
+        int page = 1;
+        if(cursor > 0) {
+            page = (int)(cursor / pageSize + 1);
+        }
+        pageBounds.setPage(page);
+        pageBounds.setLimit((int)pageSize);
+
+        return pccArticleUserRefMapper.findByArticleId(articleId, pageBounds);
+    }
+
+    public List<PccArticleUserRef> findByArtcileIdByFriend(long articleId, long userId, long cursor, long pageSize) {
+        PageBounds pageBounds = new PageBounds();
+
+        int page = 1;
+        if(cursor > 0) {
+            page = (int)(cursor / pageSize + 1);
+        }
+        pageBounds.setPage(page);
+        pageBounds.setLimit((int)pageSize);
+
+        return pccArticleUserRefMapper.findByArticleIdByFriend(articleId, userId, pageBounds);
     }
 
     public boolean isLiked(Long articleId, Long userId) {
